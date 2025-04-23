@@ -2,53 +2,56 @@
 #Warn
 #NoTrayIcon
 
-; Controles multimedia windows
 
-; Cancion anterior
+; Windows multimedia 
+
+; previous song
 ~Right & 7::
 KeyWait, 7
 Send {Media_Prev}
 return
 
-; Pausa
+
+; Pause
 ~Right & 8::
 KeyWait, 8
 send {Media_Play_Pause} 
 return
 
-; Cancion siguiente
+
+; Next song
 ~Right & 9::
 KeyWait, 9
 send {Media_Next}
 return
 
 
-; Mutear
+; Mute
 ~Right & 0::
 KeyWait, 0
 send {Volume_Mute}
 return
 
 
-; Bajar volumen
+; lower volume
 ~Right & -::
 KeyWait, -
 send {Volume_Down}
 return
 
 
-; Subir volumen
+; Increase volume
 ~Right & =::
 KeyWait, =
 send {Volume_Up}
 return
 
 
-; Para sacar screenshots con el mando (Steam) Win+PrtSc es ahora el F14 
+; To take screenshots with the controller in Steam (Win+PrtSc is now F14)
 #PrintScreen::Send {F14}
 
 
-; Función para enviar vocal acentuada según el estado de CapsLock
+; Function to send accented vowels depending on the CapsLock state
 SendAccent(vocalLower, vocalUpper) {
     if GetKeyState("CapsLock", "T")
         Send %vocalUpper%
@@ -56,14 +59,16 @@ SendAccent(vocalLower, vocalUpper) {
         Send %vocalLower%
 }
 
-; Atajos con Alt + vocal
+
+; Hotkey Alt + vocal
 !a::SendAccent("á", "Á")
 !e::SendAccent("é", "É")
 !i::SendAccent("í", "Í")
 !o::SendAccent("ó", "Ó")
 !u::SendAccent("ú", "Ú")
 
-; Alt + n para ñ/Ñ
+
+; Alt + n = ñ/Ñ
 !n::SendAccent("ñ", "Ñ")
 
 
